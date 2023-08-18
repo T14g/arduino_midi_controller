@@ -29,10 +29,37 @@ const int buttonPin7 = 12;
 #define NOTE_C4 0x3C
 #define NOTE_D4 0x3E
 #define NOTE_E4 0x40
-#define NOTE_F4 0x41
 #define NOTE_G4 0x43
 #define NOTE_A4 0x45
 #define NOTE_B4 0x47
+#define NOTE_F4 0x41 // F4 MIDI note number 65
+#define NOTE_G4 0x43 // G4 MIDI note number 67
+#define NOTE_B4 0x47 // B4 MIDI note number 71
+#define NOTE_C5 0x48 // C5 = MIDI note number 72
+#define NOTE_D5 0x4A // D5 MIDI note number 74
+#define NOTE_E5 0x4C // E5 MIDI note number 76
+#define NOTE_F5 0x4E // F5 MIDI note number 78
+#define NOTE_G5 0x50 // G5 = MIDI note number 80
+#define NOTE_D1 0x1E // D1 MIDI note number 30
+#define NOTE_E1 0x20 // E1 MIDI note number 32
+#define NOTE_F1 0x21 // F1 MIDI note number 33
+#define NOTE_G1 0x23 // G1 MIDI note number 35
+#define NOTE_C0 0x00 // C0 MIDI note number 0
+#define NOTE_D0 0x02 // D0 MIDI note number 2
+#define NOTE_E0 0x04 // E0 MIDI note number 4
+#define NOTE_F0 0x05 // F0 MIDI note number 5
+#define NOTE_G0 0x07 // G0 MIDI note number 7
+#define NOTE_A0 0x09 // A0 MIDI note number 9
+#define NOTE_B0 0x0B // B0 MIDI note number 11
+#define NOTE_C1 0x0C // C1 MIDI note number 12
+#define NOTE_20  0x14 // MIDI note number 20  A0
+#define NOTE_21  0x15 // MIDI note number 21  A#0 / Bb0
+#define NOTE_22  0x16 // MIDI note number 22  B0
+#define NOTE_23  0x17 // MIDI note number 23  C1
+#define NOTE_24  0x18 // MIDI note number 24  C#1 / Db1
+#define NOTE_25  0x19 // MIDI note number 25  D1
+#define NOTE_26  0x1A // MIDI note number 26  D#1 / Eb1
+#define NOTE_27  0x1B // MIDI note number 27  E1
 
 const int noteDelay = 400;
 
@@ -93,56 +120,56 @@ void loop() {
   
   if (buttonState1 == HIGH) {  
     digitalWrite(ledPin1, HIGH); 
-    noteOn(MIDI_CHANNEL, NOTE_F4 , 0x7F); 
+    noteOn(MIDI_CHANNEL, NOTE_20 , 0x7F); 
     delay(noteDelay);
-    noteOff(MIDI_CHANNEL,NOTE_F4);
+    noteOff(MIDI_CHANNEL,NOTE_20);
   } else {
     digitalWrite(ledPin1, LOW); 
   }
 
   if (buttonState2 == HIGH) {  
     digitalWrite(ledPin2, HIGH); 
-    noteOn(MIDI_CHANNEL,  NOTE_D0 , 0x7F); 
+    noteOn(MIDI_CHANNEL,  NOTE_21 , 0x7F); 
     delay(noteDelay);
-    noteOff(MIDI_CHANNEL, NOTE_D0);
+    noteOff(MIDI_CHANNEL, NOTE_21);
   } else {
     digitalWrite(ledPin2, LOW);  
   }
 
   if (buttonState3 == HIGH) { 
     digitalWrite(ledPin3, HIGH);  
-    noteOn(MIDI_CHANNEL, NOTE_G0 , 0x7F);
+    noteOn(MIDI_CHANNEL, NOTE_22 , 0x7F);
     delay(noteDelay);
-    noteOff(MIDI_CHANNEL,NOTE_G0);
+    noteOff(MIDI_CHANNEL,NOTE_22);
   } else {
     digitalWrite(ledPin3, LOW); 
   }
 
   if (buttonState4 == HIGH) {
     digitalWrite(ledPin4, HIGH);  
-    noteOn(MIDI_CHANNEL, NOTE_B0 , 0x7F); // Channel 1,NOTE, maximum velocity
+    noteOn(MIDI_CHANNEL, NOTE_23 , 0x7F); // Channel 1,NOTE, maximum velocity
     delay(noteDelay);
-    noteOff(MIDI_CHANNEL,NOTE_B0);
+    noteOff(MIDI_CHANNEL,NOTE_23);
   } else {
     digitalWrite(ledPin4, LOW); 
   }
 
   if (buttonState5 == LOW) { 
-    noteOn(MIDI_CHANNEL, NOTE_G4  , 0x7F);
+    noteOn(MIDI_CHANNEL, NOTE_24  , 0x7F);
     delay(noteDelay);
-    noteOff(MIDI_CHANNEL,NOTE_G4);
+    noteOff(MIDI_CHANNEL,NOTE_24);
   }
 
   
   if (buttonState6 == LOW) {  // Button is pressed when the pin reads LOW due to the pull-up resistor
-    noteOn(MIDI_CHANNEL, NOTE_A4  , 0x7F); 
+    noteOn(MIDI_CHANNEL,  NOTE_25  , 0x7F); 
     delay(noteDelay);
-    noteOff(MIDI_CHANNEL,NOTE_A4);
+    noteOff(MIDI_CHANNEL, NOTE_25);
   }
 
   if (buttonState7 == LOW) {
-    noteOn(MIDI_CHANNEL, NOTE_B4 , 0x7F); 
+    noteOn(MIDI_CHANNEL, NOTE_26 , 0x7F); 
     delay(noteDelay);
-    noteOff(MIDI_CHANNEL,NOTE_B4);
+    noteOff(MIDI_CHANNEL,NOTE_26);
   }
 }
